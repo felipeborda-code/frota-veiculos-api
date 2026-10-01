@@ -1,18 +1,18 @@
 import { Router } from "express";
-import { veiculoService } from '../services/veiculo.service'
+import { veiculosService } from '../services/veiculo.service.js'
 
-export const veiculosRouter = Router();
+export const veiculosRouter = new Router();
 
 veiculosRouter.get("/", async (req, res) => {
 
-    const veiculos = await veiculoService.getAll();
+    const veiculos = await veiculosService.getAll();
     return res.json(veiculos);
 
 });
 
 veiculosRouter.post("/", async (req, res) => {
 
-    const veiculos = await veiculoService.create(req, body);
+    const veiculos = await veiculosService.create(req, body);
     return res.status(201).json(veiculos);
 
 })

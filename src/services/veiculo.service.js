@@ -1,4 +1,4 @@
-class veiculoService {
+class veiculosService {
 
 async listarVeiculos () {
 
@@ -7,9 +7,11 @@ return res.rows[0]
 
 }
 
-async create () {
+async create (modelo, marca, ano, placa) {
 
-const res = await pool.query("INSERT INTO veiculos... RETURNING*");
+const res = await pool.query("INSERT INTO veiculos VALUES ($1, $2, $3, $4) RETURNING*",
+    [modelo, marca, ano, placa]
+);
 return res.rows[0]
 
    }

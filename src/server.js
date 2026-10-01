@@ -1,13 +1,13 @@
 import express from 'express';
-import { Router } from '..config/db.js'
-import { veiculosRouter } from './routes/veiculo.routes';
+import { Router } from './routes/veiculo.routes.js';
+import { veiculosRouter } from './services/veiculo.service.js';
 
 const app = Router();
 
 const port = 3000;
 
 app.use(express());
-app.use("/veiculos", Router);
+app.use("/veiculos", veiculosRouter);
 
 app.listen(port => {
 
