@@ -1,16 +1,12 @@
 import express from 'express';
-import { Router } from './routes/veiculo.routes.js';
-import { veiculosRouter } from './services/veiculo.service.js';
+import { veiculosRouter } from './routes/veiculo.routes.js';
 
-const app = Router();
-
+const app = express();
 const port = 3000;
 
-app.use(express());
-app.use("/veiculos", veiculosRouter);
+app.use(express.json());
+app.use('/veiculos', veiculosRouter);
 
-app.listen(port => {
-
-console.log(`API funcionando em http://localhost:${port}`)
-
+app.listen(port, () => {
+  console.log(`API funcionando em http://localhost:${port}`);
 });
